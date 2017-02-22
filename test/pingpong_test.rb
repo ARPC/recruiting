@@ -24,6 +24,16 @@ describe 'the implementation' do
     pingpong(6).must_equal '6'
   end
 
+  it 'should provide values between 1 and 100 inclusive' do
+    (1..100).each do |testValue|
+      pingpong(testValue).wont_be_nil
+    end
+  end
+
+  it 'should be nil outside 1 and 100' do
+    pingpong(0).must_be_nil
+    pingpong(101).must_be_nil
+  end
 
 
   def pingpong(i)
